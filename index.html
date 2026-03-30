@@ -21,7 +21,19 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--mist);
