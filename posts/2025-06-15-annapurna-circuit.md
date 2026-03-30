@@ -1,11 +1,12 @@
 ---
 title: "Five Days on the Annapurna Circuit: What No One Tells You"
 date: 2025-06-15
-cover_image: /images/uploads/annapurna-cover.jpg
-excerpt: "Altitude sickness at 4,130m, teahouses that felt like home, and the silence that only mountains can offer."
+cover_image: https://images.search.yahoo.com/search/images;_ylt=AwrjaBaSR8ppNAIAaZhXNyoA;_ylu=Y29sbwNncTEEcG9zAzEEdnRpZAMEc2VjA3BpdnM-?p=annapurna+train&fr2=piv-web&type=E210US1641G0&fr=mcafee&imgurl=https%3A%2F%2Fthebeastworld.com%2Fwp-content%2Fuploads%2F2025%2F06%2Fis-it-safe-to-trek-to-everest-base-camp.jpg
+excerpt: Altitude sickness at 4,130m, teahouses that felt like home, and the
+  silence that only mountains can offer.
 region: Abroad
 category: Trek
-location: "Annapurna, Nepal"
+location: Annapurna, Nepal
 read_time: 8
 featured: true
 ---
