@@ -8,7 +8,7 @@ region: Abroad
 category: Trek
 location: Annapurna, Nepal
 read_time: 8
-featured: true
+featured: false
 ---
 
 ## The Morning Everything Changed
