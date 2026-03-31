@@ -1,121 +1,138 @@
 ---
-layout: base.njk
 ---
-
-{% block extrahead %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} – Trail & Tales</title>
+<meta name="description" content="{{ excerpt }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-/* POST HERO */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#f9f6f0;color:#1c1c1c;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(249,246,240,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,28,28,0.08);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.08em;color:#d4501a;text-decoration:none;}
+.nav-logo span{color:#1a3a2a;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;color:#1c1c1c;text-transform:uppercase;}
+.nav-links a:hover{color:#d4501a;}
+.nav-cta{background:#d4501a;color:#fff!important;padding:0.5rem 1.2rem;border-radius:2rem;}
+
+.reading-progress{position:fixed;top:72px;left:0;right:0;height:3px;background:rgba(0,0,0,0.1);z-index:99;}
+.reading-progress-fill{height:100%;background:#d4501a;width:0%;transition:width 0.1s linear;}
+
 .post-hero{position:relative;height:70vh;min-height:480px;overflow:hidden;margin-top:72px;}
-.post-hero-img{width:100%;height:100%;object-fit:cover;display:block;}
-.post-hero-img.no-img-hero{background:linear-gradient(135deg,var(--forest) 0%,#2d6a4f 50%,var(--sky) 100%);display:flex;align-items:center;justify-content:center;font-size:6rem;}
+.post-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.post-hero-noimg{width:100%;height:100%;background:linear-gradient(135deg,#1a3a2a,#4a9ebb);display:flex;align-items:center;justify-content:center;font-size:6rem;}
 .post-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.1) 100%);}
 .post-hero-content{position:absolute;bottom:0;left:0;right:0;padding:3rem 5rem;color:#fff;}
 .post-breadcrumb{display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:rgba(255,255,255,0.65);margin-bottom:1.2rem;}
 .post-breadcrumb a{color:rgba(255,255,255,0.65);text-decoration:none;}
 .post-breadcrumb a:hover{color:#fff;}
-.post-breadcrumb span{color:rgba(255,255,255,0.4);}
-.post-category-badge{display:inline-block;background:var(--clay);color:#fff;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:0.3rem 1rem;border-radius:2rem;margin-bottom:1rem;}
+.post-category-badge{display:inline-block;background:#d4501a;color:#fff;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:0.3rem 1rem;border-radius:2rem;margin-bottom:1rem;}
 .post-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.8rem);font-weight:900;line-height:1.1;max-width:800px;margin-bottom:1.2rem;}
 .post-meta-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
-.post-meta-item{font-size:0.82rem;color:rgba(255,255,255,0.75);display:flex;align-items:center;gap:0.4rem;}
+.post-meta-item{font-size:0.82rem;color:rgba(255,255,255,0.75);}
 .post-location-badge{background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);padding:0.3rem 0.85rem;border-radius:2rem;font-size:0.78rem;color:#fff;}
 
-/* PROGRESS BAR */
-.reading-progress{position:fixed;top:72px;left:0;right:0;height:3px;background:rgba(0,0,0,0.1);z-index:99;}
-.reading-progress-fill{height:100%;background:var(--clay);width:0%;transition:width 0.1s linear;}
-
-/* LAYOUT */
 .post-layout{display:grid;grid-template-columns:1fr 280px;gap:4rem;max-width:1100px;margin:0 auto;padding:4rem 2rem 6rem;}
 
-/* ARTICLE */
-.post-article{}
-.post-excerpt-intro{font-size:1.2rem;line-height:1.75;color:#444;font-style:italic;border-left:4px solid var(--clay);padding-left:1.5rem;margin-bottom:2.5rem;font-family:'Playfair Display',serif;}
+.post-excerpt-intro{font-size:1.2rem;line-height:1.75;color:#444;font-style:italic;border-left:4px solid #d4501a;padding-left:1.5rem;margin-bottom:2.5rem;font-family:'Playfair Display',serif;}
 .post-body{font-size:1rem;line-height:1.85;color:#333;}
-.post-body h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--ink);}
-.post-body h3{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;color:var(--ink);}
+.post-body h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin:2.5rem 0 1rem;color:#1c1c1c;}
+.post-body h3{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;margin:2rem 0 0.75rem;}
 .post-body p{margin-bottom:1.4rem;}
-.post-body a{color:var(--clay);text-decoration:underline;}
+.post-body a{color:#d4501a;text-decoration:underline;}
 .post-body ul,.post-body ol{margin:1rem 0 1.4rem 1.5rem;}
 .post-body li{margin-bottom:0.5rem;}
-.post-body blockquote{border-left:4px solid var(--gold);margin:2rem 0;padding:1rem 1.5rem;background:rgba(232,184,75,0.08);border-radius:0 8px 8px 0;}
-.post-body blockquote p{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--ink);margin:0;}
+.post-body blockquote{border-left:4px solid #e8b84b;margin:2rem 0;padding:1rem 1.5rem;background:rgba(232,184,75,0.08);border-radius:0 8px 8px 0;}
+.post-body blockquote p{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:#1c1c1c;margin:0;}
 .post-body img{width:100%;border-radius:12px;margin:1.5rem 0;display:block;}
-.post-body strong{font-weight:600;color:var(--ink);}
+.post-body strong{font-weight:600;}
 .post-body hr{border:none;border-top:1px solid #e8e8e8;margin:2.5rem 0;}
-.post-body code{background:#f0f0f0;padding:0.15rem 0.5rem;border-radius:4px;font-size:0.88em;}
 
-/* PULL QUOTE */
-.pull-quote{background:var(--forest);color:#fff;padding:2rem 2.5rem;border-radius:16px;margin:2.5rem 0;position:relative;overflow:hidden;}
-.pull-quote::before{content:'"';font-family:'Playfair Display',serif;font-size:8rem;color:rgba(255,255,255,0.07);position:absolute;top:-1rem;left:1rem;line-height:1;}
-.pull-quote p{font-family:'Playfair Display',serif;font-size:1.35rem;font-style:italic;line-height:1.5;position:relative;z-index:1;}
-
-/* TAGS & SHARE */
 .post-footer{border-top:1px solid #e8e8e8;margin-top:3rem;padding-top:2rem;}
 .post-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;}
-.post-tag{padding:0.4rem 1rem;border-radius:2rem;background:var(--sand);color:#555;font-size:0.82rem;font-weight:500;text-decoration:none;transition:background 0.2s;}
-.post-tag:hover{background:var(--clay);color:#fff;}
+.post-tag{padding:0.4rem 1rem;border-radius:2rem;background:#f5f0e8;color:#555;font-size:0.82rem;font-weight:500;text-decoration:none;}
+.post-tag:hover{background:#d4501a;color:#fff;}
 .share-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
 .share-label{font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#999;}
-.share-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.82rem;font-weight:500;text-decoration:none;transition:all 0.2s;border:1.5px solid #ddd;color:var(--ink);cursor:pointer;background:#fff;}
-.share-btn:hover{border-color:var(--clay);color:var(--clay);}
+.share-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.82rem;font-weight:500;border:1.5px solid #ddd;color:#1c1c1c;cursor:pointer;background:#fff;}
+.share-btn:hover{border-color:#d4501a;color:#d4501a;}
 
-/* SIDEBAR */
 .post-sidebar{position:sticky;top:100px;align-self:start;}
 .sidebar-card{background:#fff;border-radius:14px;padding:1.5rem;box-shadow:0 2px 16px rgba(0,0,0,0.06);margin-bottom:1.5rem;}
 .sidebar-card h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid #f0f0f0;}
-.toc-list{list-style:none;}
-.toc-list li{margin-bottom:0.5rem;}
-.toc-list a{font-size:0.83rem;color:#666;text-decoration:none;display:flex;align-items:flex-start;gap:0.5rem;line-height:1.4;transition:color 0.2s;}
-.toc-list a:hover{color:var(--clay);}
-.toc-list a::before{content:'—';color:#ddd;flex-shrink:0;}
+.author-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#d4501a,#e8b84b);margin:0 auto 0.75rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
 .author-card{text-align:center;}
-.author-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--clay),var(--gold));margin:0 auto 0.75rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
 .author-name{font-weight:600;font-size:0.95rem;margin-bottom:0.3rem;}
 .author-bio{font-size:0.8rem;color:#888;line-height:1.5;}
-.meta-info-card .meta-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid #f5f5f5;font-size:0.83rem;}
-.meta-info-card .meta-row:last-child{border-bottom:none;}
-.meta-info-card .meta-key{color:#999;}
-.meta-info-card .meta-val{font-weight:500;color:var(--ink);}
+.meta-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid #f5f5f5;font-size:0.83rem;}
+.meta-row:last-child{border-bottom:none;}
+.meta-key{color:#999;}
+.meta-val{font-weight:500;}
+.toc-list{list-style:none;}
+.toc-list li{margin-bottom:0.5rem;}
+.toc-list a{font-size:0.83rem;color:#666;text-decoration:none;display:flex;align-items:flex-start;gap:0.5rem;line-height:1.4;}
+.toc-list a:hover{color:#d4501a;}
+.toc-list a::before{content:'—';color:#ddd;flex-shrink:0;}
 
-/* MORE STORIES */
-.more-stories{background:var(--sand);padding:5rem 4rem;}
+.more-stories{background:#f5f0e8;padding:5rem 4rem;}
 .more-stories-inner{max-width:1100px;margin:0 auto;}
-.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;}
+.more-eyebrow{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.2em;color:#d4501a;font-weight:500;margin-bottom:0.4rem;}
+.more-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;margin-bottom:2rem;}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .more-card{background:#fff;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform 0.3s,box-shadow 0.3s;display:block;}
 .more-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.1);}
 .more-card-img{aspect-ratio:16/9;overflow:hidden;position:relative;}
 .more-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
 .more-card:hover .more-card-img img{transform:scale(1.05);}
-.more-card-img .no-img-sm{width:100%;height:100%;background:linear-gradient(135deg,var(--forest),var(--sky));display:flex;align-items:center;justify-content:center;font-size:2rem;}
+.more-card-noimg{width:100%;height:100%;background:linear-gradient(135deg,#1a3a2a,#4a9ebb);display:flex;align-items:center;justify-content:center;font-size:2rem;}
 .more-card-body{padding:1.2rem;}
-.more-card-cat{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--clay);font-weight:600;margin-bottom:0.4rem;}
+.more-card-cat{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:#d4501a;font-weight:600;margin-bottom:0.4rem;}
 .more-card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;line-height:1.3;}
 
+footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3rem 4rem 2rem;}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2rem;}
+.footer-brand h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#fff;margin-bottom:0.6rem;}
+.footer-brand p{font-size:0.85rem;line-height:1.7;}
+.footer-col h4{color:#fff;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;font-weight:500;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:0.5rem;}
+.footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;}
+.footer-col ul li a:hover{color:#e8b84b;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;font-size:0.78rem;}
+
 @media(max-width:900px){.post-layout{grid-template-columns:1fr;gap:2rem;}.post-sidebar{position:static;}.post-hero-content{padding:2rem;}.more-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.post-title{font-size:2rem;}.post-layout{padding:2.5rem 1.5rem 4rem;}.more-stories{padding:3rem 1.5rem;}.more-grid{grid-template-columns:1fr;}.post-hero{height:55vh;}}
+@media(max-width:600px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.post-title{font-size:2rem;}.post-layout{padding:2rem 1.5rem 4rem;}.more-stories{padding:3rem 1.5rem;}.more-grid{grid-template-columns:1fr;}.post-hero{height:55vh;}.footer-inner{grid-template-columns:1fr;}.footer{padding:2rem 1.5rem;}}
 </style>
-{% endblock %}
+</head>
+<body>
 
-{% block content %}
+<nav>
+  <a class="nav-logo" href="/"><span>Trail</span> & Tales</a>
+  <ul class="nav-links">
+    <li><a href="/#blog">Stories</a></li>
+    <li><a href="/#blog">Destinations</a></li>
+    <li><a href="/#blog">Tips</a></li>
+    <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+  </ul>
+</nav>
 
-<!-- READING PROGRESS -->
 <div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
 
-<!-- POST HERO -->
 <div class="post-hero">
   {% if cover_image %}
-    <img class="post-hero-img" src="{{ cover_image }}" alt="{{ title }}">
+    <img src="{{ cover_image }}" alt="{{ title }}">
   {% else %}
-    <div class="post-hero-img no-img-hero">✈️</div>
+    <div class="post-hero-noimg">✈️</div>
   {% endif %}
   <div class="post-hero-overlay"></div>
   <div class="post-hero-content">
     <div class="post-breadcrumb">
-      <a href="/">Home</a>
-      <span>›</span>
-      <a href="/#blog">Stories</a>
-      <span>›</span>
-      <span>{{ title }}</span>
+      <a href="/">Home</a> › <a href="/#blog">Stories</a> › <span>{{ title }}</span>
     </div>
     {% if category %}<span class="post-category-badge">{{ category }}</span>{% endif %}
     <h1 class="post-title">{{ title }}</h1>
@@ -128,20 +145,10 @@ layout: base.njk
   </div>
 </div>
 
-<!-- POST LAYOUT -->
 <div class="post-layout">
-
-  <!-- ARTICLE -->
-  <article class="post-article" id="postBody">
-    {% if excerpt %}
-    <p class="post-excerpt-intro">{{ excerpt }}</p>
-    {% endif %}
-
-    <div class="post-body" id="articleContent">
-      {{ content | safe }}
-    </div>
-
-    <!-- POST FOOTER -->
+  <article id="postBody">
+    {% if excerpt %}<p class="post-excerpt-intro">{{ excerpt }}</p>{% endif %}
+    <div class="post-body" id="articleContent">{{ content | safe }}</div>
     <div class="post-footer">
       <div class="post-tags">
         {% if category %}<a href="/#blog" class="post-tag">{{ category }}</a>{% endif %}
@@ -157,120 +164,95 @@ layout: base.njk
     </div>
   </article>
 
-  <!-- SIDEBAR -->
   <aside class="post-sidebar">
-
-    <!-- Author -->
     <div class="sidebar-card author-card">
       <div class="author-avatar">🌍</div>
       <div class="author-name">Trail & Tales</div>
       <div class="author-bio">Travel writer from Bangladesh, exploring the world one story at a time.</div>
     </div>
-
-    <!-- Post info -->
-    <div class="sidebar-card meta-info-card">
+    <div class="sidebar-card">
       <h4>Post Details</h4>
-      {% if date %}
-      <div class="meta-row"><span class="meta-key">Published</span><span class="meta-val">{{ date | dateDisplay }}</span></div>
-      {% endif %}
-      {% if read_time %}
-      <div class="meta-row"><span class="meta-key">Read time</span><span class="meta-val">{{ read_time }} min</span></div>
-      {% endif %}
-      {% if category %}
-      <div class="meta-row"><span class="meta-key">Category</span><span class="meta-val">{{ category }}</span></div>
-      {% endif %}
-      {% if region %}
-      <div class="meta-row"><span class="meta-key">Region</span><span class="meta-val">{{ region }}</span></div>
-      {% endif %}
-      {% if location %}
-      <div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">{{ location }}</span></div>
-      {% endif %}
+      {% if date %}<div class="meta-row"><span class="meta-key">Published</span><span class="meta-val">{{ date | dateDisplay }}</span></div>{% endif %}
+      {% if read_time %}<div class="meta-row"><span class="meta-key">Read time</span><span class="meta-val">{{ read_time }} min</span></div>{% endif %}
+      {% if category %}<div class="meta-row"><span class="meta-key">Category</span><span class="meta-val">{{ category }}</span></div>{% endif %}
+      {% if region %}<div class="meta-row"><span class="meta-key">Region</span><span class="meta-val">{{ region }}</span></div>{% endif %}
+      {% if location %}<div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">{{ location }}</span></div>{% endif %}
     </div>
-
-    <!-- Table of contents (auto-built from h2s) -->
     <div class="sidebar-card" id="tocCard" style="display:none">
       <h4>In This Story</h4>
       <ul class="toc-list" id="tocList"></ul>
     </div>
-
   </aside>
 </div>
 
-<!-- MORE STORIES -->
 <section class="more-stories">
   <div class="more-stories-inner">
-    <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--clay);font-weight:500;margin-bottom:0.4rem;">Keep reading</p>
-    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;">More Stories</h2>
+    <p class="more-eyebrow">Keep reading</p>
+    <h2 class="more-title">More Stories</h2>
     <div class="more-grid">
-      {% set allPosts = collections.posts | reverse %}
-      {% set shown = 0 %}
-      {% for post in allPosts %}
-        {% if post.url != page.url and shown < 3 %}
-          {% set shown = shown + 1 %}
+      {%- set shown = 0 -%}
+      {%- for post in collections.posts | reverse -%}
+        {%- if post.url != page.url and shown < 3 -%}
+          {%- set shown = shown + 1 -%}
           <a href="{{ post.url }}" class="more-card">
             <div class="more-card-img">
-              {% if post.data.cover_image %}
-                <img src="{{ post.data.cover_image }}" alt="{{ post.data.title }}" loading="lazy">
-              {% else %}
-                <div class="no-img-sm">✈️</div>
-              {% endif %}
+              {%- if post.data.cover_image -%}<img src="{{ post.data.cover_image }}" alt="{{ post.data.title }}" loading="lazy">{%- else -%}<div class="more-card-noimg">✈️</div>{%- endif -%}
             </div>
             <div class="more-card-body">
-              {% if post.data.category %}<div class="more-card-cat">{{ post.data.category }}</div>{% endif %}
+              {%- if post.data.category -%}<div class="more-card-cat">{{ post.data.category }}</div>{%- endif -%}
               <h3 class="more-card-title">{{ post.data.title }}</h3>
             </div>
           </a>
-        {% endif %}
-      {% endfor %}
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 </section>
 
-{% endblock %}
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Trail & Tales</h3>
+      <p>Honest stories from an honest traveler — from the Sundarbans to the Himalayas and everywhere in between.</p>
+    </div>
+    <div class="footer-col"><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/#blog">All Stories</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="/">My Story</a></li><li><a href="/">Work With Me</a></li><li><a href="/">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Trail & Tales · Made with ✦ in Bangladesh</span></div>
+</footer>
 
-{% block scripts %}
 <script>
-// Reading progress bar
 window.addEventListener('scroll',()=>{
   const article=document.getElementById('postBody');
   if(!article) return;
-  const rect=article.getBoundingClientRect();
   const total=article.offsetHeight;
-  const scrolled=Math.max(0,-rect.top);
-  const pct=Math.min(100,(scrolled/total)*100);
-  document.getElementById('progressFill').style.width=pct+'%';
+  const scrolled=Math.max(0,-article.getBoundingClientRect().top);
+  document.getElementById('progressFill').style.width=Math.min(100,(scrolled/total)*100)+'%';
 });
-
-// Auto table of contents from h2 headings
 window.addEventListener('DOMContentLoaded',()=>{
   const headings=document.querySelectorAll('#articleContent h2');
   if(headings.length>=2){
     const toc=document.getElementById('tocList');
-    const card=document.getElementById('tocCard');
+    document.getElementById('tocCard').style.display='block';
     headings.forEach((h,i)=>{
-      const id='heading-'+i;
-      h.id=id;
+      const id='h-'+i; h.id=id;
       const li=document.createElement('li');
-      li.innerHTML=`<a href="#${id}">${h.textContent}</a>`;
+      li.innerHTML='<a href="#'+id+'">'+h.textContent+'</a>';
       toc.appendChild(li);
     });
-    card.style.display='block';
   }
 });
-
-// Share buttons
-function sharePost(platform){
-  const url=encodeURIComponent(window.location.href);
-  const title=encodeURIComponent(document.title);
-  if(platform==='twitter') window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`,'_blank');
-  if(platform==='facebook') window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`,'_blank');
+function sharePost(p){
+  const u=encodeURIComponent(location.href),t=encodeURIComponent(document.title);
+  if(p==='twitter') window.open('https://twitter.com/intent/tweet?text='+t+'&url='+u,'_blank');
+  if(p==='facebook') window.open('https://www.facebook.com/sharer/sharer.php?u='+u,'_blank');
 }
 function copyLink(){
-  navigator.clipboard.writeText(window.location.href).then(()=>{
-    const btn=event.target;
-    btn.textContent='✓ Copied!';
-    setTimeout(()=>btn.textContent='🔗 Copy Link',2000);
+  navigator.clipboard.writeText(location.href).then(()=>{
+    event.target.textContent='✓ Copied!';
+    setTimeout(()=>event.target.textContent='🔗 Copy Link',2000);
   });
 }
 </script>
-{% endblock %}
+</body>
+</html>
