@@ -1,22 +1,34 @@
 ---
-layout: base.njk
-title: Home
+permalink: /index.html
 ---
-
-{% block extrahead %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trail & Tales – Travel Stories from Bangladesh and Beyond</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#f9f6f0;color:#1c1c1c;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(249,246,240,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,28,28,0.08);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.08em;color:#d4501a;text-decoration:none;}
+.nav-logo span{color:#1a3a2a;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;color:#1c1c1c;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:#d4501a;}
+.nav-cta{background:#d4501a;color:#fff!important;padding:0.5rem 1.2rem;border-radius:2rem;}
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px;overflow:hidden;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem;background:#1a3a2a;color:#fff;position:relative;}
-.hero-left::after{content:'';position:absolute;right:-40px;top:0;bottom:0;width:80px;background:#1a3a2a;clip-path:polygon(0 0,0 100%,100% 100%);z-index:1;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem;background:#1a3a2a;color:#fff;}
 .hero-eyebrow{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#e8b84b;margin-bottom:1.5rem;font-weight:500;}
 .hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,5vw,5.5rem);line-height:1.0;margin-bottom:1.5rem;font-weight:900;}
 .hero-title em{color:#e8b84b;font-style:italic;}
 .hero-sub{font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,0.75);max-width:420px;margin-bottom:2.5rem;}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-primary{background:#d4501a;color:#fff;padding:0.9rem 2rem;border-radius:3rem;text-decoration:none;font-weight:500;font-size:0.9rem;display:inline-block;transition:transform 0.2s;}
-.btn-primary:hover{transform:translateY(-2px);}
+.btn-primary{background:#d4501a;color:#fff;padding:0.9rem 2rem;border-radius:3rem;text-decoration:none;font-weight:500;font-size:0.9rem;display:inline-block;}
 .btn-outline{border:1px solid rgba(255,255,255,0.4);color:#fff;padding:0.9rem 2rem;border-radius:3rem;text-decoration:none;font-weight:500;font-size:0.9rem;display:inline-block;}
-.hero-right{position:relative;overflow:hidden;background:#f5f0e8;}
+.hero-right{overflow:hidden;background:#f5f0e8;}
 .hero-img-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;height:100%;gap:4px;}
 .hero-img-grid .img-block{overflow:hidden;}
 .hero-img-grid .img-block img{width:100%;height:100%;object-fit:cover;}
@@ -24,11 +36,11 @@ title: Home
 .filters-section{padding:2rem 4rem 1.5rem;background:#f9f6f0;border-bottom:1px solid rgba(0,0,0,0.06);}
 .filter-row{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;}
 .filter-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:#888;font-weight:500;}
-.filter-chip{padding:0.4rem 1.1rem;border-radius:2rem;border:1.5px solid #ddd;font-size:0.82rem;font-weight:500;cursor:pointer;background:#fff;transition:all 0.2s;color:#1c1c1c;}
-.filter-chip:hover,.filter-chip.active{background:#d4501a;color:#fff;border-color:#d4501a;}
+.filter-chip{padding:0.4rem 1.1rem;border-radius:2rem;border:1.5px solid #ddd;font-size:0.82rem;font-weight:500;cursor:pointer;background:#fff;color:#1c1c1c;}
+.filter-chip.active,.filter-chip:hover{background:#d4501a;color:#fff;border-color:#d4501a;}
 .filter-divider{width:1px;height:24px;background:#ddd;margin:0 0.25rem;}
 .blog-section{padding:3rem 4rem 5rem;}
-.blog-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;}
+.blog-header{margin-bottom:2.5rem;}
 .section-eyebrow{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.2em;color:#d4501a;font-weight:500;margin-bottom:0.4rem;}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
@@ -39,15 +51,15 @@ title: Home
 .blog-card.featured .card-img{aspect-ratio:unset;height:100%;}
 .card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
 .blog-card:hover .card-img img{transform:scale(1.06);}
-.no-img{width:100%;height:100%;min-height:200px;background:linear-gradient(135deg,#1a3a2a,#4a9ebb);display:flex;align-items:center;justify-content:center;font-size:3rem;}
-.card-category{position:absolute;top:1rem;left:1rem;background:#d4501a;color:#fff;font-size:0.68rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;padding:0.3rem 0.8rem;border-radius:2rem;}
+.no-img{width:100%;min-height:220px;height:100%;background:linear-gradient(135deg,#1a3a2a,#4a9ebb);display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.card-category{position:absolute;top:1rem;left:1rem;background:#d4501a;color:#fff;font-size:0.68rem;font-weight:500;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2rem;}
 .card-location{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,0.55);color:#fff;font-size:0.68rem;padding:0.3rem 0.75rem;border-radius:2rem;}
 .card-body{padding:1.5rem;}
 .card-meta{font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;}
 .card-title{font-family:'Playfair Display',serif;font-size:1.15rem;line-height:1.3;margin-bottom:0.65rem;font-weight:700;}
 .blog-card.featured .card-title{font-size:1.55rem;}
 .card-excerpt{font-size:0.88rem;line-height:1.65;color:#666;margin-bottom:1.1rem;}
-.card-footer{display:flex;align-items:center;justify-content:space-between;}
+.card-footer-row{display:flex;align-items:center;justify-content:space-between;}
 .card-tags{display:flex;gap:0.4rem;flex-wrap:wrap;}
 .card-tag{font-size:0.7rem;padding:0.2rem 0.65rem;border-radius:2rem;background:#f5f0e8;color:#555;font-weight:500;}
 .card-read{font-size:0.75rem;color:#999;}
@@ -56,16 +68,35 @@ title: Home
 .newsletter{padding:5rem 4rem;background:#d4501a;color:#fff;text-align:center;}
 .newsletter h2{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;margin-bottom:1rem;}
 .newsletter p{font-size:1rem;color:rgba(255,255,255,0.8);max-width:480px;margin:0 auto 2rem;}
-.newsletter-form{display:flex;max-width:440px;margin:0 auto;}
-.newsletter-form input{flex:1;padding:1rem 1.5rem;border:none;border-radius:3rem 0 0 3rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;}
-.newsletter-form button{background:#1a3a2a;color:#fff;border:none;padding:1rem 1.8rem;border-radius:0 3rem 3rem 0;font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:500;cursor:pointer;white-space:nowrap;}
-.newsletter-note{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:1rem;}
+.nl-form{display:flex;max-width:440px;margin:0 auto;}
+.nl-form input{flex:1;padding:1rem 1.5rem;border:none;border-radius:3rem 0 0 3rem;font-size:0.9rem;outline:none;}
+.nl-form button{background:#1a3a2a;color:#fff;border:none;padding:1rem 1.8rem;border-radius:0 3rem 3rem 0;font-size:0.9rem;font-weight:500;cursor:pointer;white-space:nowrap;}
+footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3.5rem 4rem 2rem;}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+.footer-brand h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#fff;margin-bottom:0.6rem;}
+.footer-brand p{font-size:0.85rem;line-height:1.7;max-width:260px;}
+.footer-col h4{color:#fff;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;font-weight:500;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:0.5rem;}
+.footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;}
+.footer-col ul li a:hover{color:#e8b84b;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;font-size:0.78rem;flex-wrap:wrap;gap:1rem;}
 @media(max-width:1100px){.blog-grid{grid-template-columns:repeat(2,1fr);}.blog-card.featured{grid-column:span 2;}}
-@media(max-width:768px){.hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:5rem 2rem 4rem;}.filters-section,.blog-section{padding-left:1.5rem;padding-right:1.5rem;}.blog-grid{grid-template-columns:1fr;}.blog-card.featured{grid-column:span 1;grid-template-columns:1fr;}.blog-card.featured .card-img{height:200px;}.newsletter{padding:3rem 1.5rem;}.newsletter-form{flex-direction:column;}.newsletter-form input,.newsletter-form button{border-radius:3rem;}}
+@media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:5rem 2rem 4rem;}.filters-section,.blog-section{padding-left:1.5rem;padding-right:1.5rem;}.blog-grid{grid-template-columns:1fr;}.blog-card.featured{grid-column:span 1;grid-template-columns:1fr;}.blog-card.featured .card-img{height:200px;}.newsletter{padding:3rem 1.5rem;}.nl-form{flex-direction:column;}.nl-form input,.nl-form button{border-radius:3rem;}.footer-inner{grid-template-columns:1fr;}.footer{padding:2.5rem 1.5rem;}}
 </style>
-{% endblock %}
+</head>
+<body>
 
-{% block content %}
+<nav>
+  <a class="nav-logo" href="/"><span>Trail</span> & Tales</a>
+  <ul class="nav-links">
+    <li><a href="#blog">Stories</a></li>
+    <li><a href="#blog">Destinations</a></li>
+    <li><a href="#blog">Tips</a></li>
+    <li><a href="#newsletter" class="nav-cta">Subscribe</a></li>
+  </ul>
+</nav>
+
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">✦ Stories from the road</p>
@@ -103,10 +134,8 @@ title: Home
 
 <section class="blog-section">
   <div class="blog-header">
-    <div>
-      <p class="section-eyebrow">Latest from the road</p>
-      <h2 class="section-title">Recent Stories</h2>
-    </div>
+    <p class="section-eyebrow">Latest from the road</p>
+    <h2 class="section-title">Recent Stories</h2>
   </div>
   <div class="blog-grid" id="blogGrid">
     {%- set postcount = 0 -%}
@@ -119,10 +148,10 @@ title: Home
           {%- if post.data.location -%}<span class="card-location">📍 {{ post.data.location }}</span>{%- endif -%}
         </div>
         <div class="card-body">
-          <p class="card-meta">{{ post.data.date | dateDisplay }}{%- if post.data.read_time -%} · {{ post.data.read_time }} min read{%- endif -%}</p>
+          <p class="card-meta">{{ post.data.date | dateDisplay }}{%- if post.data.read_time -%} · {{ post.data.read_time }} min{%- endif -%}</p>
           <h3 class="card-title">{{ post.data.title }}</h3>
           {%- if post.data.excerpt -%}<p class="card-excerpt">{{ post.data.excerpt }}</p>{%- endif -%}
-          <div class="card-footer">
+          <div class="card-footer-row">
             <div class="card-tags">
               {%- if post.data.category -%}<span class="card-tag">{{ post.data.category }}</span>{%- endif -%}
               {%- if post.data.region -%}<span class="card-tag">{{ post.data.region }}</span>{%- endif -%}
@@ -132,7 +161,7 @@ title: Home
         </div>
       </a>
     {%- else -%}
-      <div class="no-posts"><p style="font-size:2rem;margin-bottom:1rem">✍️</p><p>No posts yet — go to <a href="/admin/" style="color:#d4501a">/admin</a> to write your first story!</p></div>
+      <div class="no-posts"><p style="font-size:2rem;margin-bottom:1rem">✍️</p><p>No posts yet! Go to <a href="/admin/" style="color:#d4501a">/admin</a> to write your first story.</p></div>
     {%- endfor -%}
   </div>
 </section>
@@ -140,15 +169,25 @@ title: Home
 <section class="newsletter" id="newsletter">
   <h2>Get Stories Before They're Live</h2>
   <p>New posts, destination guides, and exclusive tips — delivered to your inbox. No spam, ever.</p>
-  <div class="newsletter-form">
+  <div class="nl-form">
     <input type="email" id="emailInput" placeholder="your@email.com">
     <button onclick="handleSubscribe()">Subscribe Free</button>
   </div>
-  <p class="newsletter-note">Unsubscribe any time</p>
 </section>
-{% endblock %}
 
-{% block scripts %}
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Trail & Tales</h3>
+      <p>Honest stories from an honest traveler — from the Sundarbans to the Himalayas and everywhere in between.</p>
+    </div>
+    <div class="footer-col"><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="#blog">All Stories</a></li></ul></div>
+    <div class="footer-col"><h4>Categories</h4><ul><li><a href="#">🍜 Food</a></li><li><a href="#">🥾 Trek</a></li><li><a href="#">🌊 Relax</a></li><li><a href="#">🤝 Community</a></li><li><a href="#">🌿 Nature</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">My Story</a></li><li><a href="#">Work With Me</a></li><li><a href="#">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Trail & Tales · Made with ✦ in Bangladesh</span></div>
+</footer>
+
 <script>
 let activeRegion='all',activeVibe=null;
 function filterPosts(btn,type,val){
@@ -168,4 +207,5 @@ function handleSubscribe(){
   else{input.placeholder='Please enter a valid email';}
 }
 </script>
-{% endblock %}
+</body>
+</html>
