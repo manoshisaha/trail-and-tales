@@ -2,20 +2,20 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
+media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
   - name: "posts"
     label: "Blog Posts"
-    folder: "posts"
+    folder: "src/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Cover Image", name: "cover_image", widget: "image" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Title",        name: "title",       widget: "string" }
+      - { label: "Publish Date", name: "date",        widget: "datetime" }
+      - { label: "Cover Image",  name: "cover_image", widget: "image" }
+      - { label: "Excerpt",      name: "excerpt",     widget: "text" }
       - label: "Region"
         name: "region"
         widget: "select"
@@ -24,7 +24,7 @@ collections:
         name: "category"
         widget: "select"
         options: ["Food", "Trek", "Relax", "Community", "Nature"]
-      - { label: "Location", name: "location", widget: "string", hint: "e.g. Sylhet, Bangladesh" }
+      - { label: "Location",            name: "location",  widget: "string" }
       - { label: "Read Time (minutes)", name: "read_time", widget: "number" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Featured Post?", name: "featured", widget: "boolean", default: false }
+      - { label: "Featured Post?",      name: "featured",  widget: "boolean", default: false }
+      - { label: "Body",                name: "body",      widget: "markdown" }

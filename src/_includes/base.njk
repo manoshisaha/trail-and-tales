@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if title %}{{ title }} – {% endif %}Trail & Tales</title>
+<meta name="description" content="{% if excerpt %}{{ excerpt }}{% else %}Honest travel stories from Bangladesh and beyond.{% endif %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+:root {
+  --sand:#f5f0e8; --clay:#d4501a; --forest:#1a3a2a;
+  --sky:#4a9ebb; --gold:#e8b84b; --ink:#1c1c1c;
+  --mist:#f9f6f0; --green:#2d7a4f;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--mist);color:var(--ink);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(249,246,240,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,28,28,0.08);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.08em;color:var(--clay);text-decoration:none;}
+.nav-logo span{color:var(--forest);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;color:var(--ink);text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--clay);}
+.nav-cta{background:var(--clay);color:#fff!important;padding:0.5rem 1.2rem;border-radius:2rem;}
+.nav-cta:hover{background:var(--forest)!important;color:#fff!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ink);transition:0.3s;}
+.mobile-nav{display:none;position:fixed;top:0;right:0;bottom:0;width:260px;background:var(--forest);z-index:200;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem;transform:translateX(100%);transition:transform 0.3s;}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav a{color:#fff;text-decoration:none;font-size:1.05rem;font-weight:500;}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,0.65);padding:3.5rem 4rem 2rem;}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+.footer-brand h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.08em;color:#fff;margin-bottom:0.6rem;}
+.footer-brand p{font-size:0.85rem;line-height:1.7;max-width:260px;}
+.footer-col h4{color:#fff;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;font-weight:500;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:0.5rem;}
+.footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;flex-wrap:wrap;gap:1rem;}
+.footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none;}
+.footer-bottom a:hover{color:var(--gold);}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .mobile-nav{display:flex;}
+  footer{padding:2.5rem 1.5rem 1.5rem;}
+  .footer-inner{grid-template-columns:1fr;}
+}
+</style>
+{% block extrahead %}{% endblock %}
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/"><span>Trail</span> & Tales</a>
+  <ul class="nav-links">
+    <li><a href="/#blog">Stories</a></li>
+    <li><a href="/#destinations">Destinations</a></li>
+    <li><a href="/#tips">Tips</a></li>
+    <li><a href="/#newsletter" class="nav-cta">Subscribe</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/#blog" onclick="toggleMenu()">Stories</a>
+  <a href="/#destinations" onclick="toggleMenu()">Destinations</a>
+  <a href="/#tips" onclick="toggleMenu()">Tips</a>
+  <a href="/#newsletter" onclick="toggleMenu()">Subscribe</a>
+</div>
+
+{% block content %}{% endblock %}
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Trail & Tales</h3>
+      <p>Honest stories from an honest traveler — from the Sundarbans to the Himalayas and everywhere in between.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#blog">All Stories</a></li>
+        <li><a href="/#destinations">Destinations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="/">🍜 Food</a></li>
+        <li><a href="/">🥾 Trek</a></li>
+        <li><a href="/">🌊 Relax</a></li>
+        <li><a href="/">🤝 Community</a></li>
+        <li><a href="/">🌿 Nature</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="/">My Story</a></li>
+        <li><a href="/">Work With Me</a></li>
+        <li><a href="/">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Trail & Tales · Made with ✦ in Bangladesh</span>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="/">Privacy</a>
+      <a href="/">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+if(window.netlifyIdentity){
+  window.netlifyIdentity.on("init",user=>{
+    if(!user){
+      window.netlifyIdentity.on("login",()=>{document.location.href="/admin/";});
+    }
+  });
+}
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>
