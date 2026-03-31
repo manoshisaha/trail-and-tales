@@ -1,11 +1,11 @@
 ---
-title: "Five Days on the Annapurna Circuit: What No One Tells You"
+title: 'Five Days on the Annapurna Circuit: What No One Tells You and Me'
 date: 2025-06-15
-cover_image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80"
-excerpt: "Altitude sickness at 4,130m, teahouses that felt like home, and the silence that only mountains can offer. This isn't just a trek — it's a conversation with yourself."
-region: "Abroad"
-category: "Trek"
-location: "Annapurna, Nepal"
+cover_image: https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80
+excerpt: Altitude sickness at 4,130m, teahouses that felt like home, and the silence that only mountains can offer. This isn't just a trek — it's a conversation with yourself.
+region: Abroad
+category: Trek
+location: Annapurna, Nepal
 read_time: 8
 featured: true
 ---
@@ -37,7 +37,7 @@ The families running these places have been doing it for generations. The grandm
 ## Practical Notes
 
 - **Best time to go:** October–November or March–April
-- **Permit needed:** TIMS card + ACAP permit (~$50 total)
+- **Permit needed:** TIMS card + ACAP permit (\~$50 total)
 - **Budget:** $20–35/day covers lodging + all meals
 - **Altitude sickness:** Take it seriously. Climb high, sleep low. Diamox helps.
 - **What to bring:** Layers, a good headlamp, and zero expectations
