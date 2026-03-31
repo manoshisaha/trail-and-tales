@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: manoshisaha/trail-and-tales
   branch: main
 
 media_folder: "src/images/uploads"
