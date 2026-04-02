@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ title }} – Trail & Tales</title>
+<title>{{ title }} – The Unchained Girl</title>
 <meta name="description" content="{{ excerpt }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -13,16 +13,14 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',sans-serif;background:#f9f6f0;color:#1c1c1c;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(249,246,240,0.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,28,28,0.08);}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.08em;color:#d4501a;text-decoration:none;}
-.nav-logo span{color:#1a3a2a;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:#1a3a2a;text-decoration:none;font-weight:700;font-style:italic;}
+.nav-logo span{color:#d4501a;}
 .nav-links{display:flex;gap:2rem;list-style:none;}
 .nav-links a{font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;color:#1c1c1c;text-transform:uppercase;}
 .nav-links a:hover{color:#d4501a;}
 .nav-cta{background:#d4501a;color:#fff!important;padding:0.5rem 1.2rem;border-radius:2rem;}
-
 .reading-progress{position:fixed;top:72px;left:0;right:0;height:3px;background:rgba(0,0,0,0.1);z-index:99;}
 .reading-progress-fill{height:100%;background:#d4501a;width:0%;transition:width 0.1s linear;}
-
 .post-hero{position:relative;height:70vh;min-height:480px;overflow:hidden;margin-top:72px;}
 .post-hero img{width:100%;height:100%;object-fit:cover;display:block;}
 .post-hero-noimg{width:100%;height:100%;background:linear-gradient(135deg,#1a3a2a,#4a9ebb);display:flex;align-items:center;justify-content:center;font-size:6rem;}
@@ -36,9 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .post-meta-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
 .post-meta-item{font-size:0.82rem;color:rgba(255,255,255,0.75);}
 .post-location-badge{background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);padding:0.3rem 0.85rem;border-radius:2rem;font-size:0.78rem;color:#fff;}
-
 .post-layout{display:grid;grid-template-columns:1fr 280px;gap:4rem;max-width:1100px;margin:0 auto;padding:4rem 2rem 6rem;}
-
 .post-excerpt-intro{font-size:1.2rem;line-height:1.75;color:#444;font-style:italic;border-left:4px solid #d4501a;padding-left:1.5rem;margin-bottom:2.5rem;font-family:'Playfair Display',serif;}
 .post-body{font-size:1rem;line-height:1.85;color:#333;}
 .post-body h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin:2.5rem 0 1rem;color:#1c1c1c;}
@@ -52,7 +48,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .post-body img{width:100%;border-radius:12px;margin:1.5rem 0;display:block;}
 .post-body strong{font-weight:600;}
 .post-body hr{border:none;border-top:1px solid #e8e8e8;margin:2.5rem 0;}
-
 .post-footer{border-top:1px solid #e8e8e8;margin-top:3rem;padding-top:2rem;}
 .post-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;}
 .post-tag{padding:0.4rem 1rem;border-radius:2rem;background:#f5f0e8;color:#555;font-size:0.82rem;font-weight:500;text-decoration:none;}
@@ -61,13 +56,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .share-label{font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#999;}
 .share-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.82rem;font-weight:500;border:1.5px solid #ddd;color:#1c1c1c;cursor:pointer;background:#fff;}
 .share-btn:hover{border-color:#d4501a;color:#d4501a;}
-
 .post-sidebar{position:sticky;top:100px;align-self:start;}
 .sidebar-card{background:#fff;border-radius:14px;padding:1.5rem;box-shadow:0 2px 16px rgba(0,0,0,0.06);margin-bottom:1.5rem;}
 .sidebar-card h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid #f0f0f0;}
 .author-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#d4501a,#e8b84b);margin:0 auto 0.75rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
 .author-card{text-align:center;}
-.author-name{font-weight:600;font-size:0.95rem;margin-bottom:0.3rem;}
+.author-name{font-weight:600;font-size:0.95rem;margin-bottom:0.3rem;font-family:'Playfair Display',serif;font-style:italic;}
 .author-bio{font-size:0.8rem;color:#888;line-height:1.5;}
 .meta-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid #f5f5f5;font-size:0.83rem;}
 .meta-row:last-child{border-bottom:none;}
@@ -78,7 +72,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .toc-list a{font-size:0.83rem;color:#666;text-decoration:none;display:flex;align-items:flex-start;gap:0.5rem;line-height:1.4;}
 .toc-list a:hover{color:#d4501a;}
 .toc-list a::before{content:'—';color:#ddd;flex-shrink:0;}
-
 .more-stories{background:#f5f0e8;padding:5rem 4rem;}
 .more-stories-inner{max-width:1100px;margin:0 auto;}
 .more-eyebrow{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.2em;color:#d4501a;font-weight:500;margin-bottom:0.4rem;}
@@ -86,17 +79,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .more-card{background:#fff;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:transform 0.3s,box-shadow 0.3s;display:block;}
 .more-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.1);}
-.more-card-img{aspect-ratio:16/9;overflow:hidden;position:relative;}
+.more-card-img{aspect-ratio:16/9;overflow:hidden;}
 .more-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
 .more-card:hover .more-card-img img{transform:scale(1.05);}
-.more-card-noimg{width:100%;height:100%;background:linear-gradient(135deg,#1a3a2a,#4a9ebb);display:flex;align-items:center;justify-content:center;font-size:2rem;}
+.more-card-noimg{width:100%;height:100%;background:linear-gradient(135deg,#1a3a2a,#4a9ebb);display:flex;align-items:center;justify-content:center;font-size:2rem;min-height:140px;}
 .more-card-body{padding:1.2rem;}
 .more-card-cat{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:#d4501a;font-weight:600;margin-bottom:0.4rem;}
 .more-card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;line-height:1.3;}
-
 footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3rem 4rem 2rem;}
 .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2rem;}
-.footer-brand h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#fff;margin-bottom:0.6rem;}
+.footer-brand h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:0.6rem;font-style:italic;}
 .footer-brand p{font-size:0.85rem;line-height:1.7;}
 .footer-col h4{color:#fff;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;font-weight:500;}
 .footer-col ul{list-style:none;}
@@ -104,7 +96,6 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3rem 4rem 2rem;}
 .footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;}
 .footer-col ul li a:hover{color:#e8b84b;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;font-size:0.78rem;}
-
 @media(max-width:900px){.post-layout{grid-template-columns:1fr;gap:2rem;}.post-sidebar{position:static;}.post-hero-content{padding:2rem;}.more-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:600px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.post-title{font-size:2rem;}.post-layout{padding:2rem 1.5rem 4rem;}.more-stories{padding:3rem 1.5rem;}.more-grid{grid-template-columns:1fr;}.post-hero{height:55vh;}.footer-inner{grid-template-columns:1fr;}.footer{padding:2rem 1.5rem;}}
 </style>
@@ -112,7 +103,7 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3rem 4rem 2rem;}
 <body>
 
 <nav>
-  <a class="nav-logo" href="/"><span>Trail</span> & Tales</a>
+  <a class="nav-logo" href="/"><span>The</span> Unchained Girl</a>
   <ul class="nav-links">
     <li><a href="/#blog">Stories</a></li>
     <li><a href="/#blog">Destinations</a></li>
@@ -124,11 +115,8 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3rem 4rem 2rem;}
 <div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
 
 <div class="post-hero">
-  {% if cover_image %}
-    <img src="{{ cover_image }}" alt="{{ title }}">
-  {% else %}
-    <div class="post-hero-noimg">✈️</div>
-  {% endif %}
+  {% if cover_image %}<img src="{{ cover_image }}" alt="{{ title }}">
+  {% else %}<div class="post-hero-noimg">✈️</div>{% endif %}
   <div class="post-hero-overlay"></div>
   <div class="post-hero-content">
     <div class="post-breadcrumb">
@@ -167,8 +155,8 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3rem 4rem 2rem;}
   <aside class="post-sidebar">
     <div class="sidebar-card author-card">
       <div class="author-avatar">🌍</div>
-      <div class="author-name">Trail & Tales</div>
-      <div class="author-bio">Travel writer from Bangladesh, exploring the world one story at a time.</div>
+      <div class="author-name">The Unchained Girl</div>
+      <div class="author-bio">A Bangladeshi girl exploring the world — one trail, one meal, one honest story at a time.</div>
     </div>
     <div class="sidebar-card">
       <h4>Post Details</h4>
@@ -212,13 +200,13 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3rem 4rem 2rem;}
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <h3>Trail & Tales</h3>
-      <p>Honest stories from an honest traveler — from the Sundarbans to the Himalayas and everywhere in between.</p>
+      <h3>The Unchained Girl</h3>
+      <p>A Bangladeshi girl exploring the world — food, trails, nature and the people that make it all worthwhile.</p>
     </div>
     <div class="footer-col"><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/#blog">All Stories</a></li></ul></div>
     <div class="footer-col"><h4>About</h4><ul><li><a href="/">My Story</a></li><li><a href="/">Work With Me</a></li><li><a href="/">Contact</a></li></ul></div>
   </div>
-  <div class="footer-bottom"><span>© 2025 Trail & Tales · Made with ✦ in Bangladesh</span></div>
+  <div class="footer-bottom"><span>© 2025 The Unchained Girl · Made with ✦ in Bangladesh</span></div>
 </footer>
 
 <script>
