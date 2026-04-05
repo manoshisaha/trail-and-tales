@@ -8,7 +8,7 @@ permalink: /index.html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Unchained Girl – Travel, Food & Adventure from Bangladesh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',sans-serif;background:#f9f6f0;color:#1c1c1c;overflow-x:hidden;}
@@ -19,6 +19,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a{font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-decoration:none;color:#1c1c1c;text-transform:uppercase;transition:color 0.2s;}
 .nav-links a:hover{color:#d4501a;}
 .nav-cta{background:#d4501a;color:#fff!important;padding:0.5rem 1.2rem;border-radius:2rem;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:#1c1c1c;}
+.mobile-nav{display:none;position:fixed;top:0;right:0;bottom:0;width:260px;background:#1a3a2a;z-index:200;padding:5rem 2rem 2rem;flex-direction:column;gap:1.5rem;transform:translateX(100%);transition:transform 0.3s;}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav a{color:#fff;text-decoration:none;font-size:1.05rem;font-weight:500;}
+
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px;overflow:hidden;}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem;background:#1a3a2a;color:#fff;}
 .hero-eyebrow{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#e8b84b;margin-bottom:1.5rem;font-weight:500;}
@@ -33,12 +39,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-img-grid .img-block{overflow:hidden;}
 .hero-img-grid .img-block img{width:100%;height:100%;object-fit:cover;}
 .hero-img-grid .img-block:first-child{grid-row:span 2;}
+
 .filters-section{padding:2rem 4rem 1.5rem;background:#f9f6f0;border-bottom:1px solid rgba(0,0,0,0.06);}
 .filter-row{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;}
 .filter-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:#888;font-weight:500;}
 .filter-chip{padding:0.4rem 1.1rem;border-radius:2rem;border:1.5px solid #ddd;font-size:0.82rem;font-weight:500;cursor:pointer;background:#fff;color:#1c1c1c;}
 .filter-chip.active,.filter-chip:hover{background:#d4501a;color:#fff;border-color:#d4501a;}
 .filter-divider{width:1px;height:24px;background:#ddd;margin:0 0.25rem;}
+
 .blog-section{padding:3rem 4rem 5rem;}
 .blog-header{margin-bottom:2.5rem;}
 .section-eyebrow{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.2em;color:#d4501a;font-weight:500;margin-bottom:0.4rem;}
@@ -65,12 +73,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .card-read{font-size:0.75rem;color:#999;}
 .blog-card.hidden{display:none!important;}
 .no-posts{text-align:center;padding:4rem 2rem;color:#888;grid-column:1/-1;}
+
 .newsletter{padding:5rem 4rem;background:#1a3a2a;color:#fff;text-align:center;}
 .newsletter h2{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;margin-bottom:1rem;}
 .newsletter p{font-size:1rem;color:rgba(255,255,255,0.8);max-width:480px;margin:0 auto 2rem;}
 .nl-form{display:flex;max-width:440px;margin:0 auto;}
-.nl-form input{flex:1;padding:1rem 1.5rem;border:none;border-radius:3rem 0 0 3rem;font-size:0.9rem;outline:none;}
-.nl-form button{background:#d4501a;color:#fff;border:none;padding:1rem 1.8rem;border-radius:0 3rem 3rem 0;font-size:0.9rem;font-weight:500;cursor:pointer;white-space:nowrap;}
+.nl-form input{flex:1;padding:1rem 1.5rem;border:none;border-radius:3rem 0 0 3rem;font-size:0.9rem;outline:none;font-family:'DM Sans',sans-serif;}
+.nl-form button{background:#d4501a;color:#fff;border:none;padding:1rem 1.8rem;border-radius:0 3rem 3rem 0;font-size:0.9rem;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;}
+.nl-note{font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:1rem;}
+
 footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3.5rem 4rem 2rem;}
 .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
 .footer-brand h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:0.6rem;font-style:italic;}
@@ -78,11 +89,21 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3.5rem 4rem 2rem;
 .footer-col h4{color:#fff;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;font-weight:500;}
 .footer-col ul{list-style:none;}
 .footer-col ul li{margin-bottom:0.5rem;}
-.footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;}
+.footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
 .footer-col ul li a:hover{color:#e8b84b;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;font-size:0.78rem;flex-wrap:wrap;gap:1rem;}
+.footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none;margin-left:1rem;}
+.footer-bottom a:hover{color:#e8b84b;}
+
 @media(max-width:1100px){.blog-grid{grid-template-columns:repeat(2,1fr);}.blog-card.featured{grid-column:span 2;}}
-@media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{display:none;}.hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:5rem 2rem 4rem;}.filters-section,.blog-section{padding-left:1.5rem;padding-right:1.5rem;}.blog-grid{grid-template-columns:1fr;}.blog-card.featured{grid-column:span 1;grid-template-columns:1fr;}.blog-card.featured .card-img{height:200px;}.newsletter{padding:3rem 1.5rem;}.nl-form{flex-direction:column;}.nl-form input,.nl-form button{border-radius:3rem;}.footer-inner{grid-template-columns:1fr;}.footer{padding:2.5rem 1.5rem;}}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-nav{display:flex;}
+  .hero{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:5rem 2rem 4rem;}
+  .filters-section,.blog-section{padding-left:1.5rem;padding-right:1.5rem;}
+  .blog-grid{grid-template-columns:1fr;}.blog-card.featured{grid-column:span 1;grid-template-columns:1fr;}.blog-card.featured .card-img{height:200px;}
+  .newsletter{padding:3rem 1.5rem;}.nl-form{flex-direction:column;}.nl-form input,.nl-form button{border-radius:3rem;}
+  footer{padding:2.5rem 1.5rem 1.5rem;}.footer-inner{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -91,11 +112,19 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3.5rem 4rem 2rem;
   <a class="nav-logo" href="/"><span>The</span> Unchained Girl</a>
   <ul class="nav-links">
     <li><a href="#blog">Stories</a></li>
-    <li><a href="#blog">Destinations</a></li>
-    <li><a href="#blog">Tips</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/contact/">Contact</a></li>
     <li><a href="#newsletter" class="nav-cta">Subscribe</a></li>
   </ul>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#blog" onclick="toggleMenu()">Stories</a>
+  <a href="/about/" onclick="toggleMenu()">About</a>
+  <a href="/contact/" onclick="toggleMenu()">Contact</a>
+  <a href="#newsletter" onclick="toggleMenu()">Subscribe</a>
+</div>
 
 <section class="hero">
   <div class="hero-left">
@@ -104,7 +133,7 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3.5rem 4rem 2rem;
     <p class="hero-sub">A Bangladeshi girl exploring the world — one trail, one meal, and one honest story at a time. From the delta to the mountains and everywhere in between.</p>
     <div class="hero-btns">
       <a href="#blog" class="btn-primary">Read Stories</a>
-      <a href="#blog" class="btn-outline">Explore Destinations</a>
+      <a href="/about/" class="btn-outline">About Me</a>
     </div>
   </div>
   <div class="hero-right">
@@ -168,11 +197,12 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3.5rem 4rem 2rem;
 
 <section class="newsletter" id="newsletter">
   <h2>Join the Unchained Community</h2>
-  <p>New stories, food finds, and travel tips — delivered to your inbox. No spam, ever. Just honest travel writing.</p>
+  <p>New stories, food finds, and travel tips — delivered to your inbox. No spam, ever.</p>
   <div class="nl-form">
     <input type="email" id="emailInput" placeholder="your@email.com">
     <button onclick="handleSubscribe()">Subscribe Free</button>
   </div>
+  <p class="nl-note">📧 Subscribers get stories first · Unsubscribe any time</p>
 </section>
 
 <footer>
@@ -181,17 +211,48 @@ footer{background:#1c1c1c;color:rgba(255,255,255,0.65);padding:3.5rem 4rem 2rem;
       <h3>The Unchained Girl</h3>
       <p>A Bangladeshi girl exploring the world — food, trails, nature and the people that make it all worthwhile.</p>
     </div>
-    <div class="footer-col"><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="#blog">All Stories</a></li><li><a href="#blog">Destinations</a></li></ul></div>
-    <div class="footer-col"><h4>Categories</h4><ul><li><a href="#">🍜 Food</a></li><li><a href="#">🥾 Trek</a></li><li><a href="#">🌊 Relax</a></li><li><a href="#">🤝 Community</a></li><li><a href="#">🌿 Nature</a></li></ul></div>
-    <div class="footer-col"><h4>About</h4><ul><li><a href="#">My Story</a></li><li><a href="#">Work With Me</a></li><li><a href="#">Contact</a></li></ul></div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#blog">All Stories</a></li>
+        <li><a href="#blog">Destinations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#blog">🍜 Food</a></li>
+        <li><a href="#blog">🥾 Trek</a></li>
+        <li><a href="#blog">🌊 Relax</a></li>
+        <li><a href="#blog">🤝 Community</a></li>
+        <li><a href="#blog">🌿 Nature</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="/about/">My Story</a></li>
+        <li><a href="/contact/">Work With Me</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms</a></li>
+      </ul>
+    </div>
   </div>
   <div class="footer-bottom">
     <span>© 2025 The Unchained Girl · Made with ✦ in Bangladesh</span>
-    <div style="display:flex;gap:1.5rem;"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    <div>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms</a>
+    </div>
   </div>
 </footer>
 
 <script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
 let activeRegion='all',activeVibe=null;
 function filterPosts(btn,type,val){
   document.querySelectorAll('.filter-chip[onclick*="'+type+'"]').forEach(c=>c.classList.remove('active'));
@@ -206,8 +267,19 @@ function filterPosts(btn,type,val){
 }
 function handleSubscribe(){
   const input=document.getElementById('emailInput');
-  if(input.value&&input.value.includes('@')){input.value='';input.placeholder='✓ Welcome to the community!';}
-  else{input.placeholder='Please enter a valid email';}
+  const email=input.value.trim();
+  if(email&&email.includes('@')){
+    // Send to Formspree
+    fetch('https://formspree.io/f/xgopprkz',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,subject:'New Newsletter Subscriber'})
+    });
+    input.value='';
+    input.placeholder='✓ Welcome to the community!';
+  } else {
+    input.placeholder='Please enter a valid email';
+  }
 }
 </script>
 </body>
