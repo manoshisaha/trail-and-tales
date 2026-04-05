@@ -16,6 +16,13 @@ module.exports = function(eleventyConfig) {
     return str.toLowerCase().replace(/\s+/g, "-");
   });
 
+  // Filter: ISO date for sitemap
+  eleventyConfig.addFilter("isoDate", (dateObj) => {
+    if (!dateObj) return "";
+    const d = new Date(dateObj);
+    return d.toISOString().split("T")[0];
+  });
+
   return {
     dir: {
       input: "src",

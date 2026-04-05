@@ -32,7 +32,7 @@ eleventyExcludeFromCollections: true
   {%- for post in collections.posts %}
   <url>
     <loc>https://theunchainedgirl.com{{ post.url }}</loc>
-    <lastmod>{{ post.date | dateDisplay }}</lastmod>
+    <lastmod>{{ post.date | isoDate }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
