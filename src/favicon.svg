@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="50" fill="#d4501a"/>
+  <circle cx="50" cy="50" r="47" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.3"/>
+  <text x="50" y="72"
+    text-anchor="middle"
+    font-family="Palatino Linotype, Palatino, Book Antiqua, Georgia, serif"
+    font-size="75"
+    font-weight="700"
+    font-style="italic"
+    fill="#fff">U</text>
+</svg>
