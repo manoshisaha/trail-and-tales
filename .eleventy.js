@@ -2,6 +2,7 @@ module.exports = function(eleventyConfig) {
   // Pass through static assets
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
 
   // Filter: format date nicely
   eleventyConfig.addFilter("dateDisplay", (dateObj) => {
