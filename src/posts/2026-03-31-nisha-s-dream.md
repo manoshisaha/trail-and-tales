@@ -1,7 +1,7 @@
 ---
-title: সুলতানার স্বপ্ন
+title: বরষার প্রথম দিনে
 date: 2026-03-31T22:43:00
-cover_image: https://picsum.photos/id/1044/1920/1280.webp
+cover_image: /images/uploads/7a8dc388-70de-4385-a8ba-bef6af1532b9.jfif
 excerpt: |-
   বাঙ্গালির মত বৃষ্টিকে এত রোমান্টিক ভাবে অন্য কোনো জাতি দেখে কিনা জানি না। 
 
